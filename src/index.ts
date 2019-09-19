@@ -1,7 +1,9 @@
 import { SynchtruModel, SynchtruResponse } from "./model/SynchtruModel"
 import { SynchTruStatus } from "./model/SynchTruStatus"
+import { SynchTruClient } from "./client/SynchTruClient"
 
-export { 
+export {
+  SynchTruClient,
   SynchtruModel,
   SynchtruResponse,
   SynchTruStatus

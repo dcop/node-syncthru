@@ -105,10 +105,10 @@ export interface SynchtruResponse extends GxiInformation {
 }
 
 interface SynchtruModelContruction {
-  blackTonerLevel: number
-  cyanTonerLevel: number
-  yellowTonerLevel: number
-  magentaTonerLevel: number
+  blackTonerLevel?: number
+  cyanTonerLevel?: number
+  yellowTonerLevel?: number
+  magentaTonerLevel?: number
   isOnline: boolean
   currentStatus: SynchTruStatus
 }
