@@ -1,9 +1,16 @@
 import { SynchtruModel } from "./SynchtruModel";
-import { data as response } from "../stub/response.malformed";
 import { SynchTruStatus } from "./SynchTruStatus";
+import { SynchTruResponseBuilder } from "../builder/SynchTruResponseBuilder";
 
 describe('Synchtru', () => {
   it('should adapt the response', () => {
+    const response = SynchTruResponseBuilder
+                      .aSynchTruResponse()
+                      .withMagentaTonerLevel(56)
+                      .withBlackTonerLevel(28)
+                      .withCyanTonerLevel(6)
+                      .withYellowTonerLevel(82)
+                      .build()
     const model = SynchtruModel.from(response);
 
     expect(model.isOnline()).toBe(true);
