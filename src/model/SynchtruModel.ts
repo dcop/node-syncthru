@@ -1,3 +1,5 @@
+import { toSynchTruState as toSynchTruStatus, SynchTruStatus } from "./SynchTruStatus";
+
 interface Toner extends Drum {
   cnt: number
 }
@@ -103,31 +105,71 @@ export interface SynchtruResponse extends GxiInformation {
 }
 
 interface SynchtruModelContruction {
-
+  blackTonerLevel: number
+  cyanTonerLevel: number
+  yellowTonerLevel: number
+  magentaTonerLevel: number
+  isOnline: boolean
+  currentStatus: SynchTruStatus
 }
 
 export class SynchtruModel {
+  private readonly _blackTonerLevel: number;
+  private readonly _cyanTonerLevel: number;
+  private readonly _yellowTonerLevel: number;
+  private readonly _magentaTonerLevel: number;
+  private readonly _isOnline: boolean;
+  private readonly _currentState: SynchTruStatus;
+
   static from(response: SynchtruResponse): SynchtruModel {
-    return new SynchtruModel()
+    return new SynchtruModel({
+      blackTonerLevel: response.toner_black.remaining,
+      cyanTonerLevel: response.toner_cyan.remaining,
+      yellowTonerLevel: response.toner_yellow.remaining,
+      magentaTonerLevel: response.toner_magenta.remaining,
+      isOnline: response.status.status1 === "",
+      currentStatus: toSynchTruStatus(response.status.hrDeviceStatus)
+    });
+  }
+
+  constructor({ 
+    blackTonerLevel, 
+    cyanTonerLevel, 
+    yellowTonerLevel, 
+    magentaTonerLevel,
+    isOnline,
+    currentStatus
+  }: SynchtruModelContruction) {
+    this._blackTonerLevel = blackTonerLevel;
+    this._cyanTonerLevel = cyanTonerLevel;
+    this._yellowTonerLevel = yellowTonerLevel;
+    this._magentaTonerLevel = magentaTonerLevel;
+    this._isOnline = isOnline;
+    this._currentState = currentStatus;
   }
 
   blackTonerLevel() {
-    return 28;
+    return this._blackTonerLevel;
   }
 
   cyanTonerLevel() {
-    return 6;
+    return this._cyanTonerLevel;
+  }
+  
+  isOnline() {
+    return this._isOnline;
   }
 
   magentaTonerLevel() {
-    return 56;
+    return this._magentaTonerLevel;
+  }
+
+  status() {
+    return this._currentState;
   }
 
   yellowTonerLevel() {
-    return 82;
+    return this._yellowTonerLevel;
   }
 
-  isOnline() {
-    return true;
-  }
 }

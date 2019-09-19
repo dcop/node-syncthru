@@ -30,19 +30,19 @@ export const data: SynchtruResponse = {
   },
   toner_cyan: {
     opt: 0,
-    remaining: 0,
+    remaining: 6,
     cnt: 0,
     newError: ""
   },
   toner_magenta: {
     opt: 0,
-    remaining: 0,
+    remaining: 56,
     cnt: 0,
     newError: ""
   },
   toner_yellow: {
     opt: 0,
-    remaining: 0,
+    remaining: 82,
     cnt: 0,
     newError: ""
   },
