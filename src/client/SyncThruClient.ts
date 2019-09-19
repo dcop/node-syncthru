@@ -1,10 +1,10 @@
 import axios, { AxiosResponse, AxiosError } from "axios";
-import { SynchtruModel, SynchtruResponse } from "../model/SynchtruModel";
+import { SynchtruModel, SynchtruResponse } from "../model/SyncThruModel";
 import { parse } from "dirty-json";
 
 const SYNCHTRU_PATH = "/sws/app/information/home/home.json";
 
-export class SynchTruClient {
+export class SyncThruClient {
   private readonly ipAddr: string
   private readonly url: string
 

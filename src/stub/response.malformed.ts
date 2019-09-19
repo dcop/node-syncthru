@@ -1,4 +1,4 @@
-import { SynchtruResponse } from "../model/SynchtruModel";
+import { SynchtruResponse } from "../model/SyncThruModel";
 
 /* Response from printer is not a proper json, this is a wrkaround for testing purposes */
 export const data: SynchtruResponse = {

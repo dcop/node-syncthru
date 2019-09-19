@@ -1,10 +1,10 @@
-import { SynchtruModel, SynchtruResponse } from "./model/SynchtruModel"
-import { SynchTruStatus } from "./model/SynchTruStatus"
-import { SynchTruClient } from "./client/SynchTruClient"
+import { SynchtruModel, SynchtruResponse } from "./model/SyncThruModel"
+import { SyncThruStatus } from "./model/SyncThruStatus"
+import { SyncThruClient } from "./client/SyncThruClient"
 
 export {
-  SynchTruClient,
+  SyncThruClient,
   SynchtruModel,
   SynchtruResponse,
-  SynchTruStatus
+  SyncThruStatus
 }

@@ -1,4 +1,4 @@
-import { toSynchTruState as toSynchTruStatus, SynchTruStatus } from "./SynchTruStatus";
+import { toSyncThruState as toSyncThruStatus, SyncThruStatus } from "./SyncThruStatus";
 
 interface Toner extends Drum {
   cnt: number
@@ -110,7 +110,7 @@ interface SynchtruModelContruction {
   yellowTonerLevel?: number
   magentaTonerLevel?: number
   isOnline: boolean
-  currentStatus: SynchTruStatus
+  currentStatus: SyncThruStatus
 }
 
 export class SynchtruModel {
@@ -119,7 +119,7 @@ export class SynchtruModel {
   private readonly _yellowTonerLevel: number;
   private readonly _magentaTonerLevel: number;
   private readonly _isOnline: boolean;
-  private readonly _currentState: SynchTruStatus;
+  private readonly _currentState: SyncThruStatus;
 
   static from(response: SynchtruResponse): SynchtruModel {
     return new SynchtruModel({
@@ -128,7 +128,7 @@ export class SynchtruModel {
       yellowTonerLevel: response.toner_yellow.remaining,
       magentaTonerLevel: response.toner_magenta.remaining,
       isOnline: response.status.status1 === "",
-      currentStatus: toSynchTruStatus(response.status.hrDeviceStatus)
+      currentStatus: toSyncThruStatus(response.status.hrDeviceStatus)
     });
   }
 

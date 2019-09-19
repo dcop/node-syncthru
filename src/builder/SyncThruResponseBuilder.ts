@@ -1,6 +1,6 @@
-import { SynchtruResponse } from "../model/SynchtruModel";
+import { SynchtruResponse } from "../model/SyncThruModel";
 
-export class SynchTruResponseBuilder {
+export class SyncThruResponseBuilder {
   model: string;
   hostname: string;
   serialNumber: string;
@@ -16,8 +16,8 @@ export class SynchTruResponseBuilder {
   yellowTonerLevel: number;
   location: string;
 
-  static aSynchTruResponse() {
-    return new SynchTruResponseBuilder();
+  static aSyncThruResponse() {
+    return new SyncThruResponseBuilder();
   }
 
   private constructor() {
@@ -37,25 +37,25 @@ export class SynchTruResponseBuilder {
     this.location = "";
   }
 
-  withBlackTonerLevel(level: number): SynchTruResponseBuilder {
+  withBlackTonerLevel(level: number): SyncThruResponseBuilder {
     this.blackTonerLevel = level;
 
     return this;
   }
 
-  withMagentaTonerLevel(level: number): SynchTruResponseBuilder {
+  withMagentaTonerLevel(level: number): SyncThruResponseBuilder {
     this.magentaTonerLevel = level;
 
     return this;
   }
 
-  withYellowTonerLevel(level: number): SynchTruResponseBuilder {
+  withYellowTonerLevel(level: number): SyncThruResponseBuilder {
     this.yellowTonerLevel = level;
 
     return this;
   }
 
-  withCyanTonerLevel(level: number): SynchTruResponseBuilder {
+  withCyanTonerLevel(level: number): SyncThruResponseBuilder {
     this.cyanTonerLevel = level;
 
     return this;

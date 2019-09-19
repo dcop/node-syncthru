@@ -1,19 +1,19 @@
 import axios from "axios";
-import { SynchTruClient } from "./client/SynchTruClient";
-import { SynchTruResponseBuilder } from "./builder/SynchTruResponseBuilder";
-import { SynchtruModel } from "./model/SynchtruModel";
+import { SyncThruClient } from "./client/SyncThruClient";
+import { SyncThruResponseBuilder } from "./builder/SyncThruResponseBuilder";
+import { SynchtruModel } from "./model/SyncThruModel";
 
 jest.mock('axios');
 
-describe("SynchTru client", () => {
+describe("SyncThru client", () => {
 
   afterAll(() => { jest.resetAllMocks() })
 
   it('should get data and return proper model', () => {
-    const synchTruResponse = SynchTruResponseBuilder.aSynchTruResponse().build()
-    const client = new SynchTruClient("some-ip");
-    const resp = { data: synchTruResponse };
-    const expected = SynchtruModel.from(synchTruResponse);
+    const syncThruResponse = SyncThruResponseBuilder.aSyncThruResponse().build()
+    const client = new SyncThruClient("some-ip");
+    const resp = { data: syncThruResponse };
+    const expected = SynchtruModel.from(syncThruResponse);
 
     (axios as jest.Mocked<typeof axios>).get.mockResolvedValue(resp);
 
@@ -23,10 +23,10 @@ describe("SynchTru client", () => {
   });
 
   it('should get raw data', () => {
-    const synchTruResponse = SynchTruResponseBuilder.aSynchTruResponse().build()
-    const client = new SynchTruClient("some-ip");
-    const resp = { data: synchTruResponse };
-    const expected = synchTruResponse;
+    const syncThruResponse = SyncThruResponseBuilder.aSyncThruResponse().build()
+    const client = new SyncThruClient("some-ip");
+    const resp = { data: syncThruResponse };
+    const expected = syncThruResponse;
 
     (axios as jest.Mocked<typeof axios>).get.mockResolvedValue(resp);
 
@@ -36,7 +36,7 @@ describe("SynchTru client", () => {
   });
 
   it('should fail getting to the printer', () => {
-    const client = new SynchTruClient("some-non-existing-ip");
+    const client = new SyncThruClient("some-non-existing-ip");
     const expected = new Error("42");
 
     (axios as jest.Mocked<typeof axios>).get.mockRejectedValue(new Error("42"));
