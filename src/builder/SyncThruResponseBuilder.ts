@@ -37,6 +37,18 @@ export class SyncThruResponseBuilder {
     this.location = "";
   }
 
+  withHostName(hostName: string): SyncThruResponseBuilder {
+    this.hostname = hostName;
+
+    return this;
+  }
+
+  withModelName(modelName: string): SyncThruResponseBuilder {
+    this.model = modelName;
+
+    return this;
+  }
+
   withBlackTonerLevel(level: number): SyncThruResponseBuilder {
     this.blackTonerLevel = level;
 

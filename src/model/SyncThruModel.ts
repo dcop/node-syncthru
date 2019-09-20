@@ -111,6 +111,7 @@ interface SynchtruModelContruction {
   magentaTonerLevel?: number
   isOnline: boolean
   currentStatus: SyncThruStatus
+  modelName: string
 }
 
 export class SynchtruModel {
@@ -120,6 +121,7 @@ export class SynchtruModel {
   private readonly _magentaTonerLevel: number;
   private readonly _isOnline: boolean;
   private readonly _currentState: SyncThruStatus;
+  private readonly _modelName: string;
 
   static from(response: SynchtruResponse): SynchtruModel {
     return new SynchtruModel({
@@ -128,7 +130,8 @@ export class SynchtruModel {
       yellowTonerLevel: response.toner_yellow.remaining,
       magentaTonerLevel: response.toner_magenta.remaining,
       isOnline: response.status.status1 === "",
-      currentStatus: toSyncThruStatus(response.status.hrDeviceStatus)
+      currentStatus: toSyncThruStatus(response.status.hrDeviceStatus),
+      modelName: response.identity.model_name
     });
   }
 
@@ -138,7 +141,8 @@ export class SynchtruModel {
     yellowTonerLevel, 
     magentaTonerLevel,
     isOnline,
-    currentStatus
+    currentStatus,
+    modelName
   }: SynchtruModelContruction) {
     this._blackTonerLevel = blackTonerLevel;
     this._cyanTonerLevel = cyanTonerLevel;
@@ -146,6 +150,7 @@ export class SynchtruModel {
     this._magentaTonerLevel = magentaTonerLevel;
     this._isOnline = isOnline;
     this._currentState = currentStatus;
+    this._modelName = modelName;
   }
 
   blackTonerLevel() {
@@ -162,6 +167,10 @@ export class SynchtruModel {
 
   magentaTonerLevel() {
     return this._magentaTonerLevel;
+  }
+
+  modelName(): string {
+    return this._modelName;
   }
 
   status() {
