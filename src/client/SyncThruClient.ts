@@ -1,16 +1,17 @@
 import axios, { AxiosResponse, AxiosError } from "axios";
-import { SynchtruModel, SynchtruResponse } from "../model/SyncThruModel";
 import { parse } from "dirty-json";
+
+import { SynchtruModel, SynchtruResponse } from "../model/SyncThruModel";
 
 const SYNCHTRU_PATH = "/sws/app/information/home/home.json";
 
 export class SyncThruClient {
-  private readonly ipAddr: string
+  private readonly host: string
   private readonly url: string
 
-  constructor(ip: string) {
-    this.ipAddr = ip;
-    this.url = `http://${this.ipAddr}${SYNCHTRU_PATH}`;
+  constructor(host: string) {
+    this.host = host;
+    this.url = `${this.host}${SYNCHTRU_PATH}`;
 
     this.getWithTransform = this.getWithTransform.bind(this);
     this.toSynchtruModel = this.toSynchtruModel.bind(this);
