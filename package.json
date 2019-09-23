@@ -13,13 +13,12 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm test"
   },
-  "private": true,
   "keywords": [],
   "author": "dcop",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dcop/node-syncthru.git"
+    "url": "git+ssh://github.com/dcop/node-syncthru.git"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
