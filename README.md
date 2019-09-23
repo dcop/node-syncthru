@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dcop/node-syncthru.svg?branch=master)](https://travis-ci.org/dcop/node-syncthru)
+
 # node-syncthru
 
 A TypeScript port of [PySyncThru](https://github.com/nielstron/pysyncthru).
