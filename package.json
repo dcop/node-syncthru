@@ -2,14 +2,25 @@
   "name": "node-syncthru",
   "version": "0.1.0",
   "description": "Barebone client to connect to Samsung printers via JSON API of the device",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest --watchAll"
+    "build": "tsc",
+    "test": "jest --watchAll",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
   },
   "private": true,
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "dcop",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcop/node-syncthru.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
