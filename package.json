@@ -14,7 +14,10 @@
     "prepare": "npm run build",
     "prepublishOnly": "npm test"
   },
-  "keywords": [],
+  "keywords": [
+    "syncthru", 
+    "syncthru-client"
+  ],
   "author": "dcop",
   "license": "MIT",
   "repository": {
