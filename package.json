@@ -1,6 +1,6 @@
 {
   "name": "node-syncthru-client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Barebone client to connect to Samsung printers via JSON API of the device",
   "main": "dist/index.js",
   "files": [
