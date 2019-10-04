@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dcop/node-syncthru.svg?branch=master)](https://travis-ci.org/dcop/node-syncthru)
+[![Build Status](https://travis-ci.org/dcop/node-syncthru-client.svg?branch=master)](https://travis-ci.org/dcop/node-syncthru-client)
 
 # node-syncthru-client
 
