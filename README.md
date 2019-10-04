@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/dcop/node-syncthru.svg?branch=master)](https://travis-ci.org/dcop/node-syncthru)
 
-# node-syncthru
+# node-syncthru-client
 
 A TypeScript port of [PySyncThru](https://github.com/nielstron/pysyncthru).
 
